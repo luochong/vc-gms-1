@@ -1,0 +1,48 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: mygms - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ÂÞ³ç\LOCALS~1\Temp\RSP3.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/mygms.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\ÂÞ³ç\×ÀÃæ\vc-gms-1\gmsrole.cpp"
+"C:\Documents and Settings\ÂÞ³ç\×ÀÃæ\vc-gms-1\mygms.cpp"
+"C:\Documents and Settings\ÂÞ³ç\×ÀÃæ\vc-gms-1\mygmsDlg.cpp"
+]
+Creating command line "cl.exe @"C:\DOCUME~1\ÂÞ³ç\LOCALS~1\Temp\RSP3.tmp"" 
+Creating temporary file "C:\DOCUME~1\ÂÞ³ç\LOCALS~1\Temp\RSP4.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/mygms.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\ÂÞ³ç\×ÀÃæ\vc-gms-1\StdAfx.cpp"
+]
+Creating command line "cl.exe @"C:\DOCUME~1\ÂÞ³ç\LOCALS~1\Temp\RSP4.tmp"" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:yes /pdb:"Debug/mygms.pdb" /debug /machine:I386 /out:"Debug/mygms.exe" /pdbtype:sept  ".\Debug\gmsrole.obj" ".\Debug\mygms.obj" ".\Debug\mygmsDlg.obj" ".\Debug\StdAfx.obj" ".\Debug\mygms.res" "
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+c:\documents and settings\ÂÞ³ç\×ÀÃæ\vc-gms-1\debug\msado15.tlh(407) : warning C4146: unary minus operator applied to unsigned type, result still unsigned
+Compiling...
+gmsrole.cpp
+mygms.cpp
+mygmsDlg.cpp
+Generating Code...
+Linking...
+LINK : LNK6004: Debug/mygms.exe not found or not built by the last incremental link; performing full link
+mygmsDlg.obj : error LNK2001: unresolved external symbol "public: __thiscall CMainDlg::CMainDlg(class CWnd *)" (??0CMainDlg@@QAE@PAVCWnd@@@Z)
+Debug/mygms.exe : fatal error LNK1120: 1 unresolved externals
+Ö´ÐÐ link.exe Ê±³ö´í.
+Creating command line "bscmake.exe /nologo /o"Debug/mygms.bsc"  ".\Debug\StdAfx.sbr" ".\Debug\gmsrole.sbr" ".\Debug\mygms.sbr" ".\Debug\mygmsDlg.sbr""
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+mygms.exe - 1 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

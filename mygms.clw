@@ -2,7 +2,7 @@
 
 [General Info]
 Version=1
-LastClass=COUTDlg
+LastClass=CMainDlg
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "mygms.h"
@@ -13,15 +13,15 @@ Class2=CMygmsDlg
 Class3=CAboutDlg
 
 ResourceCount=10
-Resource1=IDD_DIALOG_ADMIN
+Resource1=IDD_DIALOG_MAIN
 Resource2=IDR_MAINFRAME
-Resource3=IDD_DIALOG_MAIN
-Resource4=IDD_DIALOG_IN
-Resource5=IDD_DIALOG_GM
-Resource6=IDD_MYGMS_DIALOG
-Resource7=IDD_DIALOG_OUT
-Resource8=IDD_ABOUTBOX
-Resource9=IDD_DIALOG_CATE
+Resource3=IDD_DIALOG_OUT
+Resource4=IDD_ABOUTBOX
+Resource5=IDD_DIALOG_CATE
+Resource6=IDD_DIALOG_IN
+Resource7=IDD_MYGMS_DIALOG
+Resource8=IDD_DIALOG_GM
+Resource9=IDD_DIALOG_ADMIN
 Class4=CMainDlg
 Class5=CINDlg
 Class6=CGMDlg
@@ -131,7 +131,7 @@ ImplementationFile=MainDlg.cpp
 BaseClass=CDialog
 Filter=D
 VirtualFilter=dWC
-LastObject=IDC_TAB_MAIN
+LastObject=CMainDlg
 
 [CLS:CINDlg]
 Type=0
@@ -139,6 +139,8 @@ HeaderFile=INDlg.h
 ImplementationFile=INDlg.cpp
 BaseClass=CDialog
 Filter=D
+VirtualFilter=dWC
+LastObject=CINDlg
 
 [CLS:CGMDlg]
 Type=0
@@ -146,6 +148,7 @@ HeaderFile=GMDlg.h
 ImplementationFile=GMDlg.cpp
 BaseClass=CDialog
 Filter=D
+LastObject=CGMDlg
 
 [CLS:CCATEDlg]
 Type=0
@@ -167,6 +170,7 @@ HeaderFile=LOGDlg.h
 ImplementationFile=LOGDlg.cpp
 BaseClass=CDialog
 Filter=D
+LastObject=CLOGDlg
 
 [CLS:COUTDlg]
 Type=0
