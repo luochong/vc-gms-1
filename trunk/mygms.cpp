@@ -33,8 +33,8 @@ CMygmsApp::CMygmsApp()
 
 CMygmsApp::~CMygmsApp(){
 
-	
-	m_pRs->Close();
+	if ( m_pRs->State == adStateOpen)	
+		m_pRs->Close();	
 	m_pConn->Close();
 //	CGMSRole::Instance();
 	CGMSRole::freeInstance();
