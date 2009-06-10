@@ -78,6 +78,7 @@ void CGMSRole::SetRoleAction(){
 				SetAction(IN_ACTION) ;
 				SetAction(GOODS_ACTION) ;
 				SetAction(CATE_ACTION) ;
+				SetAction(ADMIN_ACTION);
 				break;
 			case IN_ADMIN:
 				

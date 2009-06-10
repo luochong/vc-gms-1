@@ -1,4 +1,4 @@
-//Microsoft Developer Studio generated resource script.
+// Microsoft Visual C++ generated resource script.
 //
 #include "resource.h"
 
@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Chinese (中国) resources
+// 中文(中华人民共和国) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
 #ifdef _WIN32
@@ -27,18 +27,18 @@ LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE DISCARDABLE 
+1 TEXTINCLUDE 
 BEGIN
     "resource.h\0"
 END
 
-2 TEXTINCLUDE DISCARDABLE 
+2 TEXTINCLUDE 
 BEGIN
     "#include ""afxres.h""\r\n"
     "\0"
 END
 
-3 TEXTINCLUDE DISCARDABLE 
+3 TEXTINCLUDE 
 BEGIN
     "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
     "#define _AFX_NO_OLE_RESOURCES\r\n"
@@ -66,15 +66,15 @@ END
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-IDR_MAINFRAME           ICON    DISCARDABLE     "res\\mygms.ico"
+IDR_MAINFRAME           ICON                    "res\\mygms.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // Dialog
 //
 
-IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+IDD_ABOUTBOX DIALOG  0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "关于 mygms"
 FONT 9, "宋体"
 BEGIN
@@ -85,10 +85,11 @@ BEGIN
 END
 
 IDD_MYGMS_DIALOG DIALOGEX 0, 0, 389, 263
-STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "超市库存管理系统1.0        管理员登录"
-FONT 9, "宋体"
+FONT 9, "宋体", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "确定",IDOK,275,235,50,14
     PUSHBUTTON      "取消",IDCANCEL,332,235,50,14
@@ -100,74 +101,73 @@ BEGIN
     LTEXT           "密码：",IDC_STATIC,142,237,24,10
 END
 
-IDD_DIALOG_MAIN DIALOG DISCARDABLE  0, 0, 302, 250
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+IDD_DIALOG_MAIN DIALOGEX 0, 0, 410, 251
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "超市库存管理系统1.0"
-FONT 10, "微软雅黑"
+FONT 10, "微软雅黑", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "确定",IDOK,185,229,50,14,NOT WS_TABSTOP
-    PUSHBUTTON      "取消",IDCANCEL,245,229,50,14
-    CONTROL         "Tab1",IDC_TAB_MAIN,"SysTabControl32",WS_TABSTOP,7,7,288,
-                    217
+    CONTROL         "Tab1",IDC_TAB_MAIN,"SysTabControl32",WS_TABSTOP,7,7,396,
+                    237
 END
 
-IDD_DIALOG_GM DIALOG DISCARDABLE  0, 0, 187, 178
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "超市库存管理系统1.0                    物品管理"
-FONT 10, "System"
+IDD_DIALOG_GM DIALOGEX 0, 0, 405, 263
+STYLE DS_SETFONT | WS_CHILD
+FONT 10, "微软雅黑", 400, 0, 0x86
 BEGIN
-    DEFPUSHBUTTON   "确定",IDOK,31,157,50,14
-    PUSHBUTTON      "取消",IDCANCEL,113,157,50,14
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | 
+                    WS_BORDER | WS_TABSTOP,109,9,273,121
+    CONTROL         "",IDC_LIST2,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | 
+                    WS_BORDER | WS_TABSTOP,109,143,273,116
+    GROUPBOX        "商品库存",IDC_STATIC,105,0,281,133
+    GROUPBOX        "以下商品需要补充",IDC_STATIC,105,134,281,129
+    CONTROL         "",IDC_TREE1,"SysTreeView32",TVS_HASBUTTONS | 
+                    TVS_HASLINES | TVS_NOTOOLTIPS | TVS_NOSCROLL | WS_BORDER | 
+                    WS_TABSTOP | 0x800,0,0,100,263
 END
 
-IDD_DIALOG_IN DIALOG DISCARDABLE  0, 0, 187, 96
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "超市库存管理系统1.0                    入库管理"
-FONT 10, "微软雅黑"
+IDD_DIALOG_IN DIALOGEX 0, 0, 279, 263
+STYLE DS_SETFONT | WS_CHILD
+FONT 10, "微软雅黑", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "确定",IDOK,49,75,50,14
-    PUSHBUTTON      "取消",IDCANCEL,116,75,50,14
-    LTEXT           "入库",IDC_STATIC,46,27,117,24
+    DEFPUSHBUTTON   "Button1",IDC_BUTTON1,222,148,48,13
+    EDITTEXT        IDC_EDIT1,46,8,80,12,ES_AUTOHSCROLL
+    LTEXT           "商品名称：",IDC_STATIC,9,10,36,8
+    GROUPBOX        "添加",IDC_STATIC,0,0,279,128
+    EDITTEXT        IDC_EDIT2,46,24,80,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,45,80,81,12,ES_AUTOHSCROLL
 END
 
-IDD_DIALOG_OUT DIALOG DISCARDABLE  0, 0, 227, 211
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "超市库存管理系统1.0                    出库管理"
-FONT 10, "System"
+IDD_DIALOG_OUT DIALOGEX 0, 0, 227, 211
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CHILD
+FONT 10, "System", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "确定",IDOK,49,190,50,14
     PUSHBUTTON      "取消",IDCANCEL,170,190,50,14
 END
 
-IDD_DIALOG_ADMIN DIALOG DISCARDABLE  0, 0, 187, 96
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "超市库存管理系统1.0                    人员管理"
-FONT 10, "System"
+IDD_DIALOG_ADMIN DIALOGEX 0, 0, 198, 194
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CHILD
+FONT 10, "System", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "确定",IDOK,130,7,50,14
-    PUSHBUTTON      "取消",IDCANCEL,130,24,50,14
+    DEFPUSHBUTTON   "确定",IDOK,141,7,50,14
+    PUSHBUTTON      "取消",IDCANCEL,141,24,50,14
 END
 
-IDD_DIALOG_CATE DIALOG DISCARDABLE  0, 0, 187, 96
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "超市库存管理系统1.0                    类别管理"
-FONT 10, "System"
+IDD_DIALOG_CATE DIALOGEX 0, 0, 240, 240
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CHILD
+FONT 10, "System", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "确定",IDOK,130,7,50,14
-    PUSHBUTTON      "取消",IDCANCEL,130,24,50,14
 END
 
-IDD_DIALOG_LOG DIALOG DISCARDABLE  0, 0, 187, 96
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "超市库存管理系统1.0                     日志管理"
-FONT 10, "System"
+IDD_DIALOG_LOG DIALOGEX 0, 0, 282, 265
+STYLE DS_SETFONT | WS_CHILD
+FONT 10, "微软雅黑", 400, 0, 0x86
 BEGIN
-    DEFPUSHBUTTON   "确定",IDOK,130,7,50,14
-    PUSHBUTTON      "取消",IDCANCEL,130,24,50,14
+    CONTROL         "",IDC_LIST_LOG,"SysListView32",LVS_REPORT | 
+                    LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,0,0,281,263
 END
 
 
-#ifndef _MAC
 /////////////////////////////////////////////////////////////////////////////
 //
 // Version
@@ -190,15 +190,13 @@ BEGIN
     BEGIN
         BLOCK "080404B0"
         BEGIN
-            VALUE "CompanyName", "\0"
-            VALUE "FileDescription", "mygms Microsoft 基础类应用程序\0"
-            VALUE "FileVersion", "1, 0, 0, 1\0"
-            VALUE "InternalName", "mygms\0"
-            VALUE "LegalCopyright", "版权所有 (C) 2009\0"
-            VALUE "LegalTrademarks", "\0"
-            VALUE "OriginalFilename", "mygms.EXE\0"
-            VALUE "ProductName", "mygms 应用程序\0"
-            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "FileDescription", "mygms Microsoft 基础类应用程序"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "mygms"
+            VALUE "LegalCopyright", "版权所有 (C) 2009"
+            VALUE "OriginalFilename", "mygms.EXE"
+            VALUE "ProductName", "mygms 应用程序"
+            VALUE "ProductVersion", "1, 0, 0, 1"
         END
     END
     BLOCK "VarFileInfo"
@@ -207,8 +205,6 @@ BEGIN
     END
 END
 
-#endif    // !_MAC
-
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -216,7 +212,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO DISCARDABLE 
+GUIDELINES DESIGNINFO 
 BEGIN
     IDD_ABOUTBOX, DIALOG
     BEGIN
@@ -237,25 +233,14 @@ BEGIN
     IDD_DIALOG_MAIN, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 295
+        RIGHTMARGIN, 403
         TOPMARGIN, 7
-        BOTTOMMARGIN, 243
+        BOTTOMMARGIN, 244
     END
 
     IDD_DIALOG_GM, DIALOG
     BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 180
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 171
-    END
-
-    IDD_DIALOG_IN, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 180
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 89
+        RIGHTMARGIN, 393
     END
 
     IDD_DIALOG_OUT, DIALOG
@@ -269,25 +254,17 @@ BEGIN
     IDD_DIALOG_ADMIN, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 180
+        RIGHTMARGIN, 191
         TOPMARGIN, 7
-        BOTTOMMARGIN, 89
+        BOTTOMMARGIN, 187
     END
 
     IDD_DIALOG_CATE, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 180
+        RIGHTMARGIN, 233
         TOPMARGIN, 7
-        BOTTOMMARGIN, 89
-    END
-
-    IDD_DIALOG_LOG, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 180
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 89
+        BOTTOMMARGIN, 233
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -298,12 +275,12 @@ END
 // String Table
 //
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE 
 BEGIN
     IDS_ABOUTBOX            "关于 mygms(&A)..."
 END
 
-#endif    // Chinese (中国) resources
+#endif    // 中文(中华人民共和国) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

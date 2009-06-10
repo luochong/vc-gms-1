@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "mygms.h"
 #include "MainDlg.h"
+#include ".\maindlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -36,6 +37,7 @@ void CMainDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CMainDlg, CDialog)
 	//{{AFX_MSG_MAP(CMainDlg)
 	//}}AFX_MSG_MAP
+	ON_NOTIFY(TCN_SELCHANGE, IDC_TAB_MAIN, OnTcnSelchangeTabMain)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -47,14 +49,108 @@ BOOL CMainDlg::OnInitDialog()
 	
 	// TODO: Add extra initialization here
 	m_tabctrl.InsertItem(0,"运行日志");
-	
-	
-//	m_tabctrl.SetWindowPos();
-	
 	m_tabctrl.InsertItem(1,"商品库存");
 	m_tabctrl.InsertItem(2,"入库管理");
 	m_tabctrl.InsertItem(3,"出库管理");
 	m_tabctrl.InsertItem(4,"类别管理");	
+	m_tabctrl.InsertItem(5,"管理员管理");
+	
+//	m_tabctrl.SetWindowPos();
+	indlg.Create(IDD_DIALOG_IN,GetDlgItem(IDC_TAB_MAIN));
+	outdlg.Create(IDD_DIALOG_OUT,GetDlgItem(IDC_TAB_MAIN));
+	catedlg.Create(IDD_DIALOG_CATE,GetDlgItem(IDC_TAB_MAIN));
+	admindlg.Create(IDD_DIALOG_ADMIN,GetDlgItem(IDC_TAB_MAIN));
+	logdlg.Create(IDD_DIALOG_LOG,GetDlgItem(IDC_TAB_MAIN));
+	gmdlg.Create(IDD_DIALOG_GM,GetDlgItem(IDC_TAB_MAIN));
+	
+	
+	CRect r;
+	m_tabctrl.GetClientRect (&r);	
+	
+	indlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+	outdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+	catedlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+	admindlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+	logdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_SHOWWINDOW);
+	gmdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+	/*CString str;
+	str.Format("width:%d;height:%d",r.Width(),r.Height());
+	MessageBox(str);*/
+
+	m_tabctrl.SetCurSel(0);		
+	
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX Property Pages should return FALSE
+}
+
+void CMainDlg::OnTcnSelchangeTabMain(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	// TODO: 在此添加控件通知处理程序代码
+	
+	CRect r;
+	m_tabctrl.GetClientRect (&r);
+/*
+	m_tabctrl.InsertItem(0,"运行日志");
+	m_tabctrl.InsertItem(1,"商品库存");
+	m_tabctrl.InsertItem(2,"入库管理");
+	m_tabctrl.InsertItem(3,"出库管理");
+	m_tabctrl.InsertItem(4,"类别管理");
+*/
+	/**/
+	
+	switch(m_tabctrl.GetCurSel())
+	{
+		case 0:
+			indlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			outdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			catedlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			admindlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			logdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_SHOWWINDOW);
+			gmdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			break;
+		case 1:
+			indlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			outdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			catedlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			admindlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			logdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			gmdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_SHOWWINDOW);
+			break;
+		case 2:
+			indlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_SHOWWINDOW);
+			outdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			catedlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			admindlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			logdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			gmdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			break;
+		case 3:
+			indlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			outdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_SHOWWINDOW);
+			catedlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			admindlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			logdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			gmdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			break;
+		case 4:
+			indlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			outdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			catedlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_SHOWWINDOW);
+			admindlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			logdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			gmdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			break;
+		case 5:
+			indlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			outdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			catedlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			admindlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_SHOWWINDOW);
+			logdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			gmdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			break;
+
+	}
+	
+	
+	*pResult = 0;
 }

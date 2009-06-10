@@ -184,7 +184,7 @@ void CMygmsDlg::OnOK()
 
 		if(CGMSRole::Instance()->Login(m_user,m_password)){
 			
-				
+			CDialog::OnOK();	
 			CMainDlg maindlg;
 			maindlg.DoModal();
 
@@ -197,5 +197,5 @@ void CMygmsDlg::OnOK()
 	
 	
 	}
-	CDialog::OnOK();
+	
 }

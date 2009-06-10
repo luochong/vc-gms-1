@@ -1,3 +1,4 @@
+#include "afxcmn.h"
 #if !defined(AFX_GMDLG_H__86579139_748F_4E47_A748_E23198E11B07__INCLUDED_)
 #define AFX_GMDLG_H__86579139_748F_4E47_A748_E23198E11B07__INCLUDED_
 
@@ -15,7 +16,7 @@ class CGMDlg : public CDialog
 // Construction
 public:
 	CGMDlg(CWnd* pParent = NULL);   // standard constructor
-
+	
 // Dialog Data
 	//{{AFX_DATA(CGMDlg)
 	enum { IDD = IDD_DIALOG_GM };
@@ -38,6 +39,13 @@ protected:
 		// NOTE: the ClassWizard will add member functions here
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+public:
+	CListCtrl m_listctrl;
+	virtual BOOL OnInitDialog();
+	CListCtrl m_wlistctrl;
+	CTreeCtrl m_treectrl;
+	void BuildTree(HTREEITEM fhtr, int fid);
+	afx_msg void OnNMClickTree1(NMHDR *pNMHDR, LRESULT *pResult);
 };
 
 //{{AFX_INSERT_LOCATION}}
