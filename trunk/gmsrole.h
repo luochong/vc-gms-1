@@ -34,6 +34,7 @@ typedef int ACTION;
 #define OUT_ACTION      2
 #define GOODS_ACTION    3
 #define CATE_ACTION     4
+#define ADMIN_ACTION    5
 class CGMSRole  
 {
 

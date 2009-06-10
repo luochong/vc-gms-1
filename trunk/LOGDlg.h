@@ -1,3 +1,4 @@
+#include "afxcmn.h"
 #if !defined(AFX_LOGDLG_H__5F746F12_20B4_41DC_AD7B_AB91CA834475__INCLUDED_)
 #define AFX_LOGDLG_H__5F746F12_20B4_41DC_AD7B_AB91CA834475__INCLUDED_
 
@@ -38,6 +39,9 @@ protected:
 		// NOTE: the ClassWizard will add member functions here
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+public:
+	CListCtrl m_listctrl;
+	virtual BOOL OnInitDialog();
 };
 
 //{{AFX_INSERT_LOCATION}}

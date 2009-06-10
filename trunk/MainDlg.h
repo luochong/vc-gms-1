@@ -11,6 +11,7 @@
 #include "LOGDlg.h"
 #include "ADMINDlg.h"
 #include "CATEDlg.h"
+#include "GMDlg.h"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -22,7 +23,11 @@ class CMainDlg : public CDialog
 public:
 	CMainDlg(CWnd* pParent = NULL);   // standard constructor
 	CINDlg indlg;
-
+	COUTDlg outdlg;
+	CLOGDlg logdlg;
+	CADMINDlg admindlg;
+	CCATEDlg catedlg;
+	CGMDlg gmdlg;
 // Dialog Data
 	//{{AFX_DATA(CMainDlg)
 	enum { IDD = IDD_DIALOG_MAIN };
@@ -45,6 +50,8 @@ protected:
 	virtual BOOL OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnTcnSelchangeTabMain(NMHDR *pNMHDR, LRESULT *pResult);
 };
 
 //{{AFX_INSERT_LOCATION}}

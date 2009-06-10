@@ -261,9 +261,6 @@
 				RelativePath=".\GMDlg.h">
 			</File>
 			<File
-				RelativePath=".\GMSDlg.h">
-			</File>
-			<File
 				RelativePath="gmsrole.h">
 			</File>
 			<File
@@ -306,5 +303,8 @@
 		</File>
 	</Files>
 	<Globals>
+		<Global
+			Name="RESOURCE_FILE"
+			Value="mygms.rc"/>
 	</Globals>
 </VisualStudioProject>
