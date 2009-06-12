@@ -50,16 +50,16 @@ BOOL CMainDlg::OnInitDialog()
 	// TODO: Add extra initialization here
 	m_tabctrl.InsertItem(0,"运行日志");
 	m_tabctrl.InsertItem(1,"商品库存");
-	m_tabctrl.InsertItem(2,"入库管理");
-	m_tabctrl.InsertItem(3,"出库管理");
-	m_tabctrl.InsertItem(4,"类别管理");	
-	m_tabctrl.InsertItem(5,"管理员管理");
-	
+if(CGMSRole::Instance()->HaveAction(IN_ACTION)) m_tabctrl.InsertItem(2,"入库管理");
+if(CGMSRole::Instance()->HaveAction(OUT_ACTION)) m_tabctrl.InsertItem(3,"出库管理");
+if(CGMSRole::Instance()->HaveAction(ADMIN_ACTION)) m_tabctrl.InsertItem(4,"管理员管理");
+
+		
 //	m_tabctrl.SetWindowPos();
-	indlg.Create(IDD_DIALOG_IN,GetDlgItem(IDC_TAB_MAIN));
-	outdlg.Create(IDD_DIALOG_OUT,GetDlgItem(IDC_TAB_MAIN));
-	catedlg.Create(IDD_DIALOG_CATE,GetDlgItem(IDC_TAB_MAIN));
-	admindlg.Create(IDD_DIALOG_ADMIN,GetDlgItem(IDC_TAB_MAIN));
+if(CGMSRole::Instance()->HaveAction(IN_ACTION)) indlg.Create(IDD_DIALOG_IN,GetDlgItem(IDC_TAB_MAIN));
+if(CGMSRole::Instance()->HaveAction(OUT_ACTION)) outdlg.Create(IDD_DIALOG_OUT,GetDlgItem(IDC_TAB_MAIN));
+
+if(CGMSRole::Instance()->HaveAction(ADMIN_ACTION)) admindlg.Create(IDD_DIALOG_ADMIN,GetDlgItem(IDC_TAB_MAIN));
 	logdlg.Create(IDD_DIALOG_LOG,GetDlgItem(IDC_TAB_MAIN));
 	gmdlg.Create(IDD_DIALOG_GM,GetDlgItem(IDC_TAB_MAIN));
 	
@@ -67,10 +67,10 @@ BOOL CMainDlg::OnInitDialog()
 	CRect r;
 	m_tabctrl.GetClientRect (&r);	
 	
-	indlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
-	outdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
-	catedlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
-	admindlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+	if(CGMSRole::Instance()->HaveAction(IN_ACTION)) indlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+	if(CGMSRole::Instance()->HaveAction(OUT_ACTION)) outdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+
+	if(CGMSRole::Instance()->HaveAction(ADMIN_ACTION)) admindlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
 	logdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_SHOWWINDOW);
 	gmdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
 	/*CString str;
@@ -101,50 +101,41 @@ void CMainDlg::OnTcnSelchangeTabMain(NMHDR *pNMHDR, LRESULT *pResult)
 	switch(m_tabctrl.GetCurSel())
 	{
 		case 0:
-			indlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
-			outdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
-			catedlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
-			admindlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			if(CGMSRole::Instance()->HaveAction(IN_ACTION)) indlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			if(CGMSRole::Instance()->HaveAction(OUT_ACTION)) outdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+		
+			if(CGMSRole::Instance()->HaveAction(ADMIN_ACTION)) admindlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
 			logdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_SHOWWINDOW);
 			gmdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
 			break;
 		case 1:
-			indlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
-			outdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
-			catedlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
-			admindlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			if(CGMSRole::Instance()->HaveAction(IN_ACTION)) indlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			if(CGMSRole::Instance()->HaveAction(OUT_ACTION)) outdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+		
+			if(CGMSRole::Instance()->HaveAction(ADMIN_ACTION)) admindlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
 			logdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
 			gmdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_SHOWWINDOW);
 			break;
 		case 2:
-			indlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_SHOWWINDOW);
-			outdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
-			catedlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
-			admindlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			if(CGMSRole::Instance()->HaveAction(IN_ACTION)) indlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_SHOWWINDOW);
+			if(CGMSRole::Instance()->HaveAction(OUT_ACTION)) outdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+		
+			if(CGMSRole::Instance()->HaveAction(ADMIN_ACTION)) admindlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
 			logdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
 			gmdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
 			break;
 		case 3:
-			indlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
-			outdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_SHOWWINDOW);
-			catedlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
-			admindlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			if(CGMSRole::Instance()->HaveAction(IN_ACTION)) indlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			if(CGMSRole::Instance()->HaveAction(OUT_ACTION)) outdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_SHOWWINDOW);
+	
+			if(CGMSRole::Instance()->HaveAction(ADMIN_ACTION)) admindlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
 			logdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
 			gmdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
 			break;
-		case 4:
-			indlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
-			outdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
-			catedlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_SHOWWINDOW);
-			admindlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
-			logdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
-			gmdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
-			break;
-		case 5:
-			indlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
-			outdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
-			catedlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
-			admindlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_SHOWWINDOW);
+		case 4:		
+			if(CGMSRole::Instance()->HaveAction(IN_ACTION)) indlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
+			if(CGMSRole::Instance()->HaveAction(OUT_ACTION))outdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);			
+			if(CGMSRole::Instance()->HaveAction(ADMIN_ACTION)) admindlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_SHOWWINDOW);
 			logdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
 			gmdlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);
 			break;

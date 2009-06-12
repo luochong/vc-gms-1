@@ -61,9 +61,11 @@ bool CGMSRole::Login(CString Admin_name,CString Admin_password){
 		this->m_admin_name = (char*)(_bstr_t)Holder;
 		Holder = theApp.m_pRs->GetCollect("Admin_role");		
 		this->m_admin_role = Holder.intVal;		
+		SetRoleAction();
+		
 		return true;
 	}
-	SetRoleAction();
+	
 
 }
 /**

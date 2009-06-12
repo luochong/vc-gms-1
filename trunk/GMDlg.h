@@ -16,7 +16,7 @@ class CGMDlg : public CDialog
 // Construction
 public:
 	CGMDlg(CWnd* pParent = NULL);   // standard constructor
-	
+	DWORD   f_id; 
 // Dialog Data
 	//{{AFX_DATA(CGMDlg)
 	enum { IDD = IDD_DIALOG_GM };
@@ -46,6 +46,14 @@ public:
 	CTreeCtrl m_treectrl;
 	void BuildTree(HTREEITEM fhtr, int fid);
 	afx_msg void OnNMClickTree1(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnTvnSelchangedTree1(NMHDR *pNMHDR, LRESULT *pResult);
+	void ShowList(_RecordsetPtr &pset, CListCtrl &m_list);
+	afx_msg void OnNMRclickTree1(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnMenuAdd();
+	
+
+
+	afx_msg void On32777();
 };
 
 //{{AFX_INSERT_LOCATION}}

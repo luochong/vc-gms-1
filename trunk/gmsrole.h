@@ -13,8 +13,8 @@
 
 
 //role
-#define SUPER_ADMIN 1
-#define IN_ADMIN 2
+#define SUPER_ADMIN 2
+#define IN_ADMIN 1
 #define OUT_ADMIN 3
 
 

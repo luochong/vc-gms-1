@@ -1,3 +1,4 @@
+#include "afxcmn.h"
 #if !defined(AFX_INDLG_H__5F187D80_3485_4C8C_8566_2BCEE8720656__INCLUDED_)
 #define AFX_INDLG_H__5F187D80_3485_4C8C_8566_2BCEE8720656__INCLUDED_
 
@@ -38,6 +39,17 @@ protected:
 	virtual BOOL OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+public:
+	CListCtrl m_listctrl;
+	afx_msg void OnBnClickedButtonSelect();
+	CString m_gcode;
+	int m_gno;
+	float m_price;
+	CString m_pcode;
+	CString m_gname;
+	afx_msg void OnBnClickedButton6();
+	afx_msg void OnBnClickedButton3();
+	afx_msg void OnBnClickedButton2();
 };
 
 //{{AFX_INSERT_LOCATION}}

@@ -15,7 +15,7 @@ class CCATEDlg : public CDialog
 // Construction
 public:
 	CCATEDlg(CWnd* pParent = NULL);   // standard constructor
-
+	
 // Dialog Data
 	//{{AFX_DATA(CCATEDlg)
 	enum { IDD = IDD_DIALOG_CATE };
@@ -38,6 +38,8 @@ protected:
 		// NOTE: the ClassWizard will add member functions here
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+public:
+	CString m_catename;
 };
 
 //{{AFX_INSERT_LOCATION}}

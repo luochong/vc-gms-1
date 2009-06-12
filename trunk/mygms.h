@@ -26,7 +26,7 @@ public:
 	~CMygmsApp();
 	_RecordsetPtr m_pRs;
 	bool ADOExecute(_RecordsetPtr &ADOSet, _variant_t &strSQL);
-	
+	CLogManager m_log;
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CMygmsApp)
