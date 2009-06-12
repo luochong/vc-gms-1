@@ -1,3 +1,4 @@
+#include "afxcmn.h"
 #if !defined(AFX_OUTDLG_H__39825128_FEDE_46F2_BD0E_1E9B31840272__INCLUDED_)
 #define AFX_OUTDLG_H__39825128_FEDE_46F2_BD0E_1E9B31840272__INCLUDED_
 
@@ -38,6 +39,15 @@ protected:
 		// NOTE: the ClassWizard will add member functions here
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnBnClickedButtonSelect();
+	int m_gno;
+	CString m_gname;
+	CString m_gcode;
+	afx_msg void OnBnClickedButton3();
+	afx_msg void OnBnClickedButton2();
+	virtual BOOL OnInitDialog();
+	CListCtrl m_listctrl;
 };
 
 //{{AFX_INSERT_LOCATION}}

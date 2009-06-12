@@ -17,6 +17,7 @@ static char THIS_FILE[] = __FILE__;
 
 CCATEDlg::CCATEDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CCATEDlg::IDD, pParent)
+	, m_catename(_T(""))
 {
 	//{{AFX_DATA_INIT(CCATEDlg)
 		// NOTE: the ClassWizard will add member initialization here
@@ -28,8 +29,9 @@ void CCATEDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CCATEDlg)
-		// NOTE: the ClassWizard will add DDX and DDV calls here
+	// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
+	DDX_Text(pDX, IDC_EDIT1, m_catename);
 }
 
 

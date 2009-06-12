@@ -50,8 +50,8 @@ BOOL CLOGDlg::OnInitDialog()
 
 	// TODO:  在此添加额外的初始化
 	//m_listctrl.InsertItem();
-	m_listctrl.InsertColumn(1,"时间",LVCFMT_LEFT,160);
-	m_listctrl.InsertColumn(2,"事件",LVCFMT_CENTER,380);
+	m_listctrl.InsertColumn(1,"时间",LVCFMT_LEFT,200);
+	m_listctrl.InsertColumn(2,"事件",LVCFMT_LEFT,540);
 	m_listctrl.SetExtendedStyle(LVS_EX_GRIDLINES);
 
 	//theApp.ADOExecute(theApp.

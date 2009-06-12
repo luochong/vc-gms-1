@@ -146,10 +146,16 @@
 			Name="Source Files"
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat">
 			<File
+				RelativePath=".\AddGoodsDlg.cpp">
+			</File>
+			<File
 				RelativePath=".\ADMINDlg.cpp">
 			</File>
 			<File
 				RelativePath=".\CATEDlg.cpp">
+			</File>
+			<File
+				RelativePath=".\GMDB.cpp">
 			</File>
 			<File
 				RelativePath=".\GMDlg.cpp">
@@ -178,6 +184,9 @@
 			</File>
 			<File
 				RelativePath=".\LOGDlg.cpp">
+			</File>
+			<File
+				RelativePath=".\LogManager.cpp">
 			</File>
 			<File
 				RelativePath=".\MainDlg.cpp">
@@ -227,6 +236,9 @@
 				RelativePath=".\OUTDlg.cpp">
 			</File>
 			<File
+				RelativePath=".\SelectDlg.cpp">
+			</File>
+			<File
 				RelativePath="StdAfx.cpp">
 				<FileConfiguration
 					Name="Debug|Win32">
@@ -252,10 +264,16 @@
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl">
 			<File
+				RelativePath=".\AddGoodsDlg.h">
+			</File>
+			<File
 				RelativePath=".\ADMINDlg.h">
 			</File>
 			<File
 				RelativePath=".\CATEDlg.h">
+			</File>
+			<File
+				RelativePath=".\GMDB.h">
 			</File>
 			<File
 				RelativePath=".\GMDlg.h">
@@ -268,6 +286,9 @@
 			</File>
 			<File
 				RelativePath=".\LOGDlg.h">
+			</File>
+			<File
+				RelativePath=".\LogManager.h">
 			</File>
 			<File
 				RelativePath=".\MainDlg.h">
@@ -283,6 +304,12 @@
 			</File>
 			<File
 				RelativePath="Resource.h">
+			</File>
+			<File
+				RelativePath=".\resource.hm">
+			</File>
+			<File
+				RelativePath=".\SelectDlg.h">
 			</File>
 			<File
 				RelativePath="StdAfx.h">
