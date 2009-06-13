@@ -23,6 +23,7 @@ CGMDlg::CGMDlg(CWnd* pParent /*=NULL*/)
 	//{{AFX_DATA_INIT(CGMDlg)
 		// NOTE: the ClassWizard will add member initialization here
 	//}}AFX_DATA_INIT
+	this->isf = true;
 }
 
 
@@ -54,8 +55,14 @@ END_MESSAGE_MAP()
 
 BOOL CGMDlg::OnInitDialog()
 {
-	CDialog::OnInitDialog();
-
+	CDialog::OnInitDialog();	
+	/***/
+	for (int i=0;i<10;i++)
+	{
+		m_listctrl.DeleteColumn(0);
+	}
+	m_listctrl.DeleteAllItems();
+	/**/
 	// TODO:  在此添加额外的初始化
 	m_listctrl.InsertColumn(1,"商品编号",LVCFMT_LEFT,100);  //G_code
 	m_listctrl.InsertColumn(2,"商品类型",LVCFMT_CENTER,150);//	Category_name
@@ -64,10 +71,15 @@ BOOL CGMDlg::OnInitDialog()
 	m_listctrl.InsertColumn(5,"库存量",LVCFMT_CENTER,80);//Current_number
 	m_listctrl.InsertColumn(6,"最大库存量",LVCFMT_CENTER,80);//Max_number
 	m_listctrl.InsertColumn(7,"最小库存量",LVCFMT_CENTER,80);//Min_number	
-	
 	m_listctrl.SetExtendedStyle(LVS_EX_GRIDLINES);
 
-	
+	/**/
+	for (int i=0;i<10 ;i++)
+	{
+		m_wlistctrl.DeleteColumn(0);
+	}
+	m_wlistctrl.DeleteAllItems();
+	/**/
 	m_wlistctrl.InsertColumn(1,"商品编号",LVCFMT_LEFT,100);  //G_code
 	m_wlistctrl.InsertColumn(2,"商品类型",LVCFMT_CENTER,150);//	Category_name
 	m_wlistctrl.InsertColumn(3,"商品名称",LVCFMT_CENTER,150);//G_name	
@@ -75,8 +87,6 @@ BOOL CGMDlg::OnInitDialog()
 	m_wlistctrl.InsertColumn(5,"库存量",LVCFMT_CENTER,80);//Current_number
 	m_wlistctrl.InsertColumn(6,"最大库存量",LVCFMT_CENTER,80);//Max_number
 	m_wlistctrl.InsertColumn(7,"最小库存量",LVCFMT_CENTER,80);//Min_number
-	
-
 	m_wlistctrl.SetExtendedStyle(LVS_EX_GRIDLINES);
 
 
@@ -92,12 +102,19 @@ BOOL CGMDlg::OnInitDialog()
 	ShowList(theApp.m_pRs,m_wlistctrl);
 		
 
-		
-		
+
 		
 	/*建立树控件*/	
-	HTREEITEM hRoot = m_treectrl.InsertItem("物品类别");
-	BuildTree(hRoot,0);
+	if(isf)
+	{
+		hRoot = m_treectrl.InsertItem("物品类别");	
+		BuildTree(hRoot,0);
+		isf = false;
+	}
+
+	
+
+	
 	
 	
 	return TRUE;  // return TRUE unless you set the focus to a control
@@ -129,10 +146,9 @@ void CGMDlg::BuildTree(HTREEITEM fhtr, int fid)
 			 m_treectrl.SetItemData(subhtr, (DWORD) ado_id.intVal);
 
 		 
-		 }	 
+		 }			 
 		 
 		 BuildTree(subhtr,ado_id.intVal);
-
 		 m_pr->MoveNext();
 	}
 	
@@ -258,13 +274,12 @@ void CGMDlg::OnMenuAdd()
 		strSql.Format("INSERT INTO goods (G_code,G_name,Current_number,Max_number,Min_number,Sale_price,Cate_ID) VALUES('%s','%s',%d,%d,%d,%.2f,%d)",
 			addgdlg.m_gcode, addgdlg.m_gname,0,addgdlg.m_maxn,addgdlg.m_minn,addgdlg.m_price,f_id);
 		_variant_t  vtQuery(strSql);  
-		theApp.ADOExecute(theApp.m_pRs, vtQuery);		
+		if(theApp.ADOExecute(theApp.m_pRs, vtQuery))		
+		{	
+			theApp.m_log.AddLog("添加商品信息,"+ addgdlg.m_gname);
+			this->OnInitDialog();
+		}
 		
-		
-		theApp.m_log.AddLog("添加商品信息,"+ addgdlg.m_gname);
-        
-
-
 	}
 
 	
@@ -284,6 +299,18 @@ void CGMDlg::On32777()
 		if(theApp.ADOExecute(theApp.m_pRs, strQuery)){
 			theApp.m_log.AddLog("添加商品类别："+catedlg.m_catename);
 			
+			/*树控件刷新*/
+			
+			m_treectrl.SetRedraw(0);
+			m_treectrl.DeleteAllItems();
+			
+			hRoot =  m_treectrl.InsertItem("物品类别");			
+			
+			BuildTree(hRoot,0);
+
+			m_treectrl.SetRedraw(1);
+
+			/*        */
 		}
 	}
 	
