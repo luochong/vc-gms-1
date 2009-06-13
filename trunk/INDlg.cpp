@@ -61,7 +61,12 @@ BOOL CINDlg::OnInitDialog()
 	CDialog::OnInitDialog();
 	
 	// TODO: Add extra initialization here
-	
+	for (int i=0;i<10;i++)
+	{
+		m_listctrl.DeleteColumn(0);
+	}
+	m_listctrl.DeleteAllItems();
+
 	m_listctrl.InsertColumn(1,"商品编号",LVCFMT_LEFT,100);  //G_code
 	m_listctrl.InsertColumn(2,"商品名称",LVCFMT_CENTER,150);//	Category_name
 	m_listctrl.InsertColumn(3,"供应商",LVCFMT_CENTER,150);//G_name	
@@ -188,8 +193,9 @@ void CINDlg::OnBnClickedButton2()
 	if(gmdb.UpdateGoods(m_gno,'+',m_gcode,errmsg)){
 
 		CString tempstr;
-		tempstr.Format("进货入库，%s数量%d",m_gname,m_gno);
+		tempstr.Format("进货入库，%s数量%d",m_gname,m_gno);		
 		theApp.m_log.AddLog(tempstr);
+		this->OnInitDialog();
 	}
 	MessageBox(errmsg);
 

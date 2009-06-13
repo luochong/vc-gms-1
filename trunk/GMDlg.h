@@ -16,7 +16,8 @@ class CGMDlg : public CDialog
 // Construction
 public:
 	CGMDlg(CWnd* pParent = NULL);   // standard constructor
-	DWORD   f_id; 
+	DWORD   f_id;
+	bool isf;
 // Dialog Data
 	//{{AFX_DATA(CGMDlg)
 	enum { IDD = IDD_DIALOG_GM };
@@ -50,7 +51,7 @@ public:
 	void ShowList(_RecordsetPtr &pset, CListCtrl &m_list);
 	afx_msg void OnNMRclickTree1(NMHDR *pNMHDR, LRESULT *pResult);
 	afx_msg void OnMenuAdd();
-	
+	HTREEITEM hRoot;
 
 
 	afx_msg void On32777();

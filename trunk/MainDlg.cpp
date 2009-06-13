@@ -97,8 +97,48 @@ void CMainDlg::OnTcnSelchangeTabMain(NMHDR *pNMHDR, LRESULT *pResult)
 	m_tabctrl.InsertItem(4,"类别管理");
 */
 	/**/
+
 	
-	switch(m_tabctrl.GetCurSel())
+	
+	
+	
+
+/*获得标签名  -- - -- -- -- - -- */
+	
+	CString pszString;	
+	TCITEM   tcItem={0};   
+    tcItem.mask   =   TCIF_TEXT;   
+	tcItem.cchTextMax   =   100;   
+	tcItem.pszText   =   new   char[tcItem.cchTextMax];
+
+	m_tabctrl.GetItem(m_tabctrl.GetCurSel(), &tcItem);
+   
+   //  Set the new text for the item.
+	pszString.Format("%s",tcItem.pszText);
+	
+/* --- -- - -- - -  -- - - -- -*/	
+	int type = 0;
+
+	if(pszString == "运行日志"){
+
+		type = 0;
+
+	}else if(pszString == "商品库存"){
+
+		type = 1;
+	}else if(pszString == "入库管理"){
+		type = 2;
+	}else if(pszString == "出库管理"){
+		type = 3;
+	}else if(pszString == "管理员管理"){
+		type = 4;
+	}
+
+	
+	
+	
+	
+	switch(type)
 	{
 		case 0:
 			if(CGMSRole::Instance()->HaveAction(IN_ACTION)) indlg.SetWindowPos(NULL,10,30,r.Width()-20,r.Height()-40,SWP_HIDEWINDOW);

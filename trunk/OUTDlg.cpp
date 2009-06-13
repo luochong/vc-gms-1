@@ -115,6 +115,7 @@ void COUTDlg::OnBnClickedButton2()
 		CString tempstr;
 		tempstr.Format("商品出库，%s数量%d",m_gname,m_gno);
 		theApp.m_log.AddLog(tempstr);
+		this->OnInitDialog();
 	}
 	MessageBox(errmsg);
 
@@ -123,6 +124,12 @@ void COUTDlg::OnBnClickedButton2()
 BOOL COUTDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
+
+	for (int i=0;i<10;i++)
+	{
+		m_listctrl.DeleteColumn(0);
+	}
+	m_listctrl.DeleteAllItems();
 
 	// TODO:  在此添加额外的初始化
 	m_listctrl.InsertColumn(1,"商品编号",LVCFMT_LEFT,100);  //G_code

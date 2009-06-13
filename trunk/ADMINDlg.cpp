@@ -81,6 +81,7 @@ void CADMINDlg::OnBnClickedButton1()
 	
 			theApp.m_log.AddLog("添加管理员，用户名为"+m_aname);
 			MessageBox("添加成功！");
+			this->OnInitDialog();
 	
 	}
 	
@@ -88,16 +89,18 @@ void CADMINDlg::OnBnClickedButton1()
 	
 	m_acode=m_aname=m_apassword="";
 	UpdateData(0);
-
-
-
 	
 }
 
 BOOL CADMINDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
-
+	
+	for (int i=0;i<m_listctrl.GetItemCount() ;i++)
+	{
+		m_listctrl.DeleteColumn(0);
+	}
+	m_listctrl.DeleteAllItems();
 	// TODO:  在此添加额外的初始化
 	m_listctrl.InsertColumn(1,"管理员编号",LVCFMT_LEFT,100);  //G_code
 	m_listctrl.InsertColumn(2,"管理员姓名",LVCFMT_CENTER,150);//	Category_name
@@ -137,10 +140,6 @@ BOOL CADMINDlg::OnInitDialog()
 		theApp.m_pRs->MoveNext();
 	}
 
-
-
-
-
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// 异常: OCX 属性页应返回 FALSE
 }
@@ -165,6 +164,7 @@ void CADMINDlg::OnBnClickedButton2()
 	
 		theApp.m_log.AddLog("删除管理员，编号为"+m_accode);
 		MessageBox("删除成功！");
+		this->OnInitDialog();
 	}
 
 	m_accode = "";
