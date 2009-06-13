@@ -93,21 +93,22 @@ BEGIN
                     IDC_STATIC,50,36,138,44
 END
 
-IDD_MYGMS_DIALOG DIALOGEX 0, 0, 389, 263
+IDD_MYGMS_DIALOG DIALOGEX 0, 0, 381, 241
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
     WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "超市库存管理系统1.0        管理员登录"
 FONT 9, "宋体", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "确定",IDOK,275,235,50,14
-    PUSHBUTTON      "取消",IDCANCEL,332,235,50,14
-    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,7,7,375,218
-    EDITTEXT        IDC_EDIT_USER,40,234,91,15,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_PASSWORD,168,234,91,16,ES_PASSWORD | 
+    DEFPUSHBUTTON   "确定",IDOK,267,217,50,14
+    PUSHBUTTON      "取消",IDCANCEL,322,217,50,14
+    CONTROL         146,IDC_STATIC,"Static",SS_BITMAP | WS_BORDER,0,0,381,
+                    205,WS_EX_CLIENTEDGE | WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_USER,46,216,91,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PASSWORD,174,216,91,16,ES_PASSWORD | 
                     ES_AUTOHSCROLL
-    LTEXT           "用户名：",IDC_STATIC,7,236,33,10
-    LTEXT           "密码：",IDC_STATIC,142,237,24,10
+    LTEXT           "用户名：",IDC_STATIC,6,218,33,10
+    LTEXT           "密码：",IDC_STATIC,148,218,24,10
 END
 
 IDD_DIALOG_MAIN DIALOGEX 0, 0, 410, 293
@@ -308,14 +309,6 @@ BEGIN
         BOTTOMMARGIN, 119
     END
 
-    IDD_MYGMS_DIALOG, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 382
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 250
-    END
-
     IDD_DIALOG_MAIN, DIALOG
     BEGIN
         LEFTMARGIN, 7
@@ -395,6 +388,13 @@ BEGIN
     0
 END
 
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP1             BITMAP                  "res\\bitmap1.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //

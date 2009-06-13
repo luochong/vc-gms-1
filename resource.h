@@ -17,6 +17,7 @@
 #define IDR_MENU_POP                    137
 #define IDD_DIALOG_ADD                  138
 #define IDD_DIALOG_SELECT               139
+#define IDB_BITMAP1                     146
 #define IDC_EDIT_USER                   1000
 #define IDC_EDIT_PASSWORD               1001
 #define IDC_TAB_MAIN                    1002
@@ -54,7 +55,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        144
+#define _APS_NEXT_RESOURCE_VALUE        147
 #define _APS_NEXT_COMMAND_VALUE         32778
 #define _APS_NEXT_CONTROL_VALUE         1032
 #define _APS_NEXT_SYMED_VALUE           101
