@@ -50,6 +50,7 @@ public:
 	afx_msg void OnBnClickedButton6();
 	afx_msg void OnBnClickedButton3();
 	afx_msg void OnBnClickedButton2();
+	CListCtrl m_glistctrl;
 };
 
 //{{AFX_INSERT_LOCATION}}
