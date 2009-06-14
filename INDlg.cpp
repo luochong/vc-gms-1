@@ -41,6 +41,7 @@ void CINDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_NO, m_gno);
 	DDX_Text(pDX, IDC_EDIT_P, m_price);
 	DDX_Text(pDX, IDC_EDIT_PRO, m_pcode);
+	DDX_Control(pDX, IDC_LIST1, m_glistctrl);
 }
 
 
@@ -64,8 +65,10 @@ BOOL CINDlg::OnInitDialog()
 	for (int i=0;i<10;i++)
 	{
 		m_listctrl.DeleteColumn(0);
+		m_glistctrl.DeleteColumn(0);
 	}
 	m_listctrl.DeleteAllItems();
+	m_glistctrl.DeleteAllItems();
 
 	m_listctrl.InsertColumn(1,"商品编号",LVCFMT_LEFT,100);  //G_code
 	m_listctrl.InsertColumn(2,"商品名称",LVCFMT_CENTER,150);//	Category_name
@@ -76,6 +79,15 @@ BOOL CINDlg::OnInitDialog()
 	m_listctrl.InsertColumn(7,"时间",LVCFMT_CENTER,110);//Min_number	
 	
 	m_listctrl.SetExtendedStyle(LVS_EX_GRIDLINES);
+
+
+
+
+	m_glistctrl.InsertColumn(1,"商品编号",LVCFMT_LEFT,100);  //G_code
+	m_glistctrl.InsertColumn(2,"商品名称",LVCFMT_CENTER,150);//	Category_name
+	m_glistctrl.InsertColumn(3,"商品数目",LVCFMT_CENTER,100);//G_name	
+		
+	m_glistctrl.SetExtendedStyle(LVS_EX_GRIDLINES);
 	
 		/*列表显示*/
 	_variant_t strQuery,Holder;
@@ -112,6 +124,34 @@ BOOL CINDlg::OnInitDialog()
 	
 	}
 	
+
+	
+	strQuery ="select G_code,G_name,Current_number from goods where Current_number <= Min_number ";
+	
+	theApp.ADOExecute(theApp.m_pRs, strQuery);	
+	
+	while(!theApp.m_pRs->adoEOF){
+		
+		Holder = theApp.m_pRs->GetCollect("G_code");		
+		m_glistctrl.InsertItem(0,(char*)(_bstr_t)Holder);		
+				
+		Holder = theApp.m_pRs->GetCollect("G_name");		
+		m_glistctrl.SetItemText(0,1,(char*)(_bstr_t)Holder);
+
+		Holder = theApp.m_pRs->GetCollect("Current_number");		
+		m_glistctrl.SetItemText(0,2,(char*)(_bstr_t)Holder);	
+
+			
+		
+		theApp.m_pRs->MoveNext();
+	
+	}
+
+
+
+
+
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX Property Pages should return FALSE
 }
